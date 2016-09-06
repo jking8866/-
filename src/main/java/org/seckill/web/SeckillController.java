@@ -39,6 +39,14 @@ public class SeckillController {
 		// list.jsp + model = ModelAndView
 		return "list";// WEB-INF/jsp/"list".jsp
 	}
+	
+	@RequestMapping(value = "/list2", method = RequestMethod.GET)
+	public String list2(Model model) {
+		List<Seckill> list = seckillService.getSeckillList();
+		model.addAttribute("list", list);
+		 model.addAttribute("recipient", "World");
+		return "list2"; 
+	}
 
 	@RequestMapping(value = "/{seckillId}/detail", method = RequestMethod.GET)
 	public String detail(@PathVariable("seckillId") Long seckillId, Model model) {
